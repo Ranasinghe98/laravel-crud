@@ -80,6 +80,7 @@
                     {{csrf_field()}}
                     <input type="hidden" name="id" value="{{$data['id']}}">
                     <input type="text" name="name" value="{{$data['name']}}">
+                    <input type="text" name="password" value="{{$data['password']}}">
                     <input type="email" name="email" value="{{$data['email']}}">
                     <input type="text" name="phone" value="{{$data['phone']}}">
                     <button type="submit">Submit</button>

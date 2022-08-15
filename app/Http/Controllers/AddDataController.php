@@ -13,6 +13,7 @@ class AddDataController extends Controller
         $user -> name = $req -> name;
         $user -> email = $req -> email;
         $user -> phone = $req -> phone;
+        $user -> password = $req -> password;
 
         $user -> save();
 

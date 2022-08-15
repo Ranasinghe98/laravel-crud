@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FetchData;
 use App\Http\Controllers\AddDataController;
 use App\Http\Controllers\DeleteUserController;
+use App\Http\Controllers\LoginUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +16,12 @@ use App\Http\Controllers\DeleteUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Route::get('/insert', function(){
-//     return view('insert');
-// });
+Route::post('/login', [LoginUserController::class, 'login']);
 
-Route::get('contact', function(){
-    return view('contact');
-});
-
-Route::get('/services', function(){
-    return view('services');
-});
+Route::view('welcome', 'welcome');
 
 Route::get('/users', [FetchData::class, 'getData']);
 
@@ -44,6 +35,23 @@ Route::get('delete/{id}', [DeleteUserController::class, 'delete']);
 Route::get('edit/{id}', [DeleteUserController::class, 'showData']);
 
 Route::post('edit', [DeleteUserController::class, 'update']);
+
+
+Route::get('login', function(){
+    if(session() -> has('name')){
+        return redirect('welcome');
+    }
+    return view('login');
+});
+
+
+Route::get('logout', function(){
+    if(session() -> has('name')){
+        session() -> pull('name');
+    }
+    return view('login');
+});
+
 // Route::get('/user/{name}', function($name){
 //     return view('users', [ 'name' => $name ]);
 // });

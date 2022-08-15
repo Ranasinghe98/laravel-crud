@@ -95,13 +95,11 @@
         <x-header />
         <div class="addData">
             <div class="addInner">
-                <form action="add" method="POST">
-                    <h1>Add Member</h1>
+                <form action="/login" method="POST">
+                    <h1>Login</h1>
                     {{csrf_field()}}
                     <input type="text" name="name" placeholder="Enter name">
-                    <input type="password" name="password" placeholder="Enter password">
-                    <input type="email" name="email" placeholder="Enter email">
-                    <input type="text" name="phone" placeholder="Enter telephone">
+                    <input type="password" name="password" placeholder="Enter Password">
                     <button type="submit">Submit</button>
                 </form>
             </div>

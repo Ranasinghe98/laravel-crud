@@ -5,6 +5,7 @@
             <tr>
                 <td class="head">ID</td>
                 <td class="head">NAME</td>
+                <td class="head">PASSWORD</td>
                 <td class="head">EMAIL</td>
                 <td class="head">PHONE</td>
             </tr>
@@ -12,6 +13,7 @@
             <tr>
                 <td class="data">{{$member['id']}}</td>
                 <td class="data">{{$member['name']}}</td>
+                <td class="data">{{$member['password']}}</td>
                 <td class="data">{{$member['email']}}</td>
                 <td class="data">{{$member['phone']}}</td>
             </tr>
